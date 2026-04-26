@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AWS Multi-Tier App</title>
+</head>
+<body>
+     <meta charset="UTF-8">
+  <h1>Frontend Running 🚀</h1>
+
+  <button onclick="callAPI()">Call Backend</button>
+
+  <p id="result"></p>
+
+  <script>
+    function callAPI() {
+      fetch("http://13.233.22.41:5000/api")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("result").innerText =
+          data.data;
+      })
+      .catch(err => {
+        document.getElementById("result").innerText =
+          "Backend not reachable";
+      });
+    }
+  </script>
+</body>
+</html>

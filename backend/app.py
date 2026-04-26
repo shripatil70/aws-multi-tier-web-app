@@ -1,17 +1,18 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)   # 👈 IMPORTANT FIX
 
 @app.route('/')
 def home():
-    return jsonify({"message": "Backend is running 🚀"})
+    return jsonify({"message": "Backend running"})
 
 @app.route('/api')
 def api():
     return jsonify({
         "status": "success",
-        "project": "multi-tier app",
-        "data": "Hello from backend EC2"
+        "data": "Hello from EC2 backend"
     })
 
 if __name__ == "__main__":
